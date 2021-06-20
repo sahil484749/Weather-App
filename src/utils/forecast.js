@@ -15,9 +15,10 @@ const forecast = (lat, long, callback) => {
       const temperature = body.current.temperature;
       const feelslike = body.current.feelslike;
       const humidity = body.current.humidity;
+      const weatherDesc = body.current.weather_descriptions;
       callback(
         undefined,
-        ` It is currently ${temperature} degress out. It feels like ${feelslike} degress out. The Humidity is ${humidity}.`
+        ` Weather Description is ${weatherDesc}. It is currently ${temperature} degress out. It feels like ${feelslike} degress out. The Humidity is ${humidity}.`
       );
     }
   });
