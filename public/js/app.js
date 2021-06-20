@@ -1,6 +1,3 @@
-
-console.log("Client side javascript is loaded!!")
-
 // fetch('http://puzzle.mead.io/puzzle').then((response)=>{
 
 //         response.json().then((data)=>{
@@ -16,47 +13,42 @@ console.log("Client side javascript is loaded!!")
 //             }else{
 //                 console.log(data.Location)
 //                 console.log(data.forecast)
-                
+
 //             }
-            
+
 //         })
 // })
 
-const weatherForm=document.querySelector('form')
-const search = document.querySelector('input')
-const messageOne = document.querySelector('#message-one')
-const messageTwo = document.querySelector('#message-two')
+const weatherForm = document.querySelector("form");
+const search = document.querySelector("input");
+const messageOne = document.querySelector("#message-one");
+const messageTwo = document.querySelector("#message-two");
 //messageError.textContent = 'From javascript'
-weatherForm.addEventListener('submit',(e)=>{
-        e.preventDefault()
-        
-        // For Testing Purpose
-        // console.log("Testing!")
-        //const location =search.value
-        // console.log(location)
+weatherForm.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-        // To fetch the weather
-        const location =search.value
-        searchLocation='http://localhost:3000/weather?address='+location
-            messageOne.textContent ="Loading..."
-            messageTwo.textContent =''
-        fetch(searchLocation).then((response)=>{
-            response.json().then((data)=>{
-                
-                if(data.error){
-                    console.log(data.error)
-                    messageOne.textContent = data.error
-                } else{
-                    messageOne.textContent = data.Location 
-                    messageTwo.textContent = data.forecast
-                    console.log(data.Location)
-                    console.log(data.forecast)
-                }
-               
-            })
-        })
+  // For Testing Purpose
+  // console.log("Testing!")
+  //const location =search.value
+  // console.log(location)
 
-
-
-})
-//console.log(weatherForm)
+  // To fetch the weather
+  const location = search.value;
+  searchLocation = "http://localhost:3000/weather?address=" + location;
+  messageOne.textContent = "Loading...";
+  messageTwo.textContent = "";
+  fetch(searchLocation).then((response) => {
+    response.json().then((data) => {
+      if (data.error) {
+        console.log(data.error);
+        messageOne.textContent = data.error;
+      } else {
+        messageOne.textContent = data.Location;
+        messageTwo.textContent = data.forecast;
+        console.log(data.Location);
+        console.log(data.forecast);
+      }
+    });
+  });
+});
+//console.log(weatherForm);
